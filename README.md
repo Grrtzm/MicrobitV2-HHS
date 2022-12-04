@@ -7,7 +7,7 @@ It was tested on Microbits V2.00 containing nRF52833; the aiunderstand version d
 
 Sorry; file names and comments are in Dutch, my students are all Dutch.
 
-Please install the [STM32duino LSM303AGR] (https://reference.arduino.cc/reference/en/libraries/stm32duino-lsm303agr/) library first. Some examples depend on it.
+Please install the [STM32duino LSM303AGR](https://reference.arduino.cc/reference/en/libraries/stm32duino-lsm303agr) library first. Some examples depend on it.
 
 I included some fun examples:
 - Motion sensor plotter demo
