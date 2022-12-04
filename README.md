@@ -1,3 +1,27 @@
+# MicrobitV2-HHS Arduino Library
+Microbit Version 2 library for first year 'Haagse Hogeschool' (HHS) HBO-ICT aka 'The Hague University of Applied Sciences' (THUAS).
+
+It was built around the [NRF52_Radio_library by aiunderstand](https://github.com/aiunderstand/NRF52_Radio_library).
+
+It was tested on Microbits V2.00 containing nRF52833; the aiunderstand version didn't work. I hardcoded the 52833 includes in the files for it to compile.
+
+Sorry; file names and comments are in Dutch, my students are all Dutch.
+
+Please install the [STM32duino LSM303AGR] (https://reference.arduino.cc/reference/en/libraries/stm32duino-lsm303agr/) library first. Some examples depend on it.
+
+I included some fun examples:
+- Motion sensor plotter demo
+- Compass
+- Temperature sensor based on accerometer
+- Lightsensor using matrix display
+- Sound demo: Super Mario Bros
+- Sound demo: Nokia sound
+- Radio demo: simple broadcast transmit and receive
+- Radio demo: using handshaking
+- Radio demo: 'measure' distance from other radio based on RSSI
+
+Have fun! Gert.
+
 # NRF52_Radio_library
 
 The nrf52_radio library API's are the same as the nrf52_radio ones. With this addition, it is now possible to control the radio of the nrf52's such as the one in the microbit V2. An example can be found to let a Microbit V1 (nrf52) and V2 (nrf52) communicate over radio.
