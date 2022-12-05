@@ -12,7 +12,7 @@ Please install the [STM32duino LSM303AGR](https://reference.arduino.cc/reference
 I included some fun examples:
 - Motion sensor plotter demo
 - Compass
-- Temperature sensor based on accerometer
+- Temperature sensor (in accelerometer)
 - Lightsensor using matrix display
 - Sound demo: Super Mario Bros
 - Sound demo: Nokia sound
@@ -24,13 +24,13 @@ Have fun! Gert.
 
 # NRF52_Radio_library
 
-The nrf52_radio library API's are the same as the nrf52_radio ones. With this addition, it is now possible to control the radio of the nrf52's such as the one in the microbit V2. An example can be found to let a Microbit V1 (nrf52) and V2 (nrf52) communicate over radio.
+The nrf52_radio library API's are the same as the nrf52_radio ones. With this addition, it is now possible to control the radio of the nrf52's such as the one in the microbit V2. An example can be found to let a Microbit V1 (nrf51) and V2 (nrf52) communicate over radio.
 
 Note: this library is not battletested. Benefit of using simple 2.4 GHz radio is that you dont need to hassle with proprietary (or open source) Bluetooth/BLE SoftDevices which are often also flash memory heavy. Many projects dont need the heavy security and other protocol overhead which often come at a steep learning curve. If your project needs simple send and receive bytes, to one or even multiple devices, this library is useful.
 
 ```
 #include "NRF52_Radio_library.h"
-NRF52_Radio MicrobitRadio = NRF52_Radio();
+NRF52_Radio MicrobitRadio = NRF52_Radio(); // replace NRF52 with NRF51 for Microbit V1
 MicrobitRadio.enable();
 
 SENDING
@@ -58,7 +58,7 @@ if (myData != NULL) {
 
 # NRF52_Radio_library
 
-This library is based on the Driver from Landcaster University microbit-dal Radio implementation.
+This library is based on the Driver from Lancaster University microbit-dal Radio implementation.
 To use this library you should have the Microbit Board from sanddeepmistry install, you can get that from here
 https://sandeepmistry.github.io/arduino-nRF5/package_nRF5_boards_index.json
 
@@ -103,6 +103,8 @@ But in general you need to do the following.
 
 NRF52_Radio MicrobitRadio = NRF52_Radio();
 ```
+
+Replace NRF52 with NRF51 if you use a Microbit V1.
 
 In the setup
 You can just enable the Radio, the it is ready
