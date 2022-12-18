@@ -1,24 +1,31 @@
 # MicrobitV2-HHS Arduino Library
-Microbit Version 2 library for first year 'Haagse Hogeschool' (HHS) HBO-ICT aka 'The Hague University of Applied Sciences' (THUAS).
+Microbit Version 2 library for first year 'Haagse Hogeschool' (HHS) HBO-ICT aka 'The Hague University of Applied Sciences' (THUAS) and for everyone else who can use it.
 
 It was built around the [NRF52_Radio_library by aiunderstand](https://github.com/aiunderstand/NRF52_Radio_library).
+Later on, 'Pulse Width Modulation' (pwm) support was added. This is based on "wiring_analog_nRF52.c" [from Sandeep Mistry's repository](https://github.com/sandeepmistry/arduino-nRF5). His library has a fixed pwm frequency. This library can generate every pwm pulse width and frequency you might need. it also contains wrappers for Tone and Servo libraries which both use pwm. 
 
-It was tested on Microbits V2.00 containing nRF52833; the aiunderstand version didn't work. I hardcoded the 52833 includes in the files for it to compile.
-
-Sorry; file names and comments are in Dutch, my students are all Dutch.
+It was tested on Microbits V2.00 containing nRF52833; the aiunderstand NRF52 library didn't work. I hardcoded the 52833 includes in the files for it to compile.
 
 I included some fun examples:
-- Motion sensor plotter demo
-- Compass
-- Temperature sensor (in accelerometer)
-- Lightsensor using matrix display
-- Sound demo: Super Mario Bros
-- Sound demo: Nokia sound
-- Radio demo: simple broadcast transmit and receive
-- Radio demo: using handshaking
-- Radio demo: 'measure' distance from other radio based on RSSI
+- Motion sensor plotter demo.
+- Compass.
+- Temperature sensor (in accelerometer) displaying on matrix.
+- Lightsensor using matrix display.
+- Servo demo: Use the buttons on the microbit to control the servo angle.
+- Servo demo: independently drive 4 servo's with different angles at the same time
+- Sound demo: Super Mario Bros.
+- Sound demo: Nokia sound.
+- Radio demo: simple broadcast transmit and receive.
+- Radio demo: using acknowledged reception.
+- Radio demo: 'measure' distance from other radio based on RSSI.
 
 Have fun! Gert.
+
+# PWM library
+The pwm library is Written around the function analogWritePin() which should be functional equivalent to the MakeCode version, except that this one can generate frequencies between 2Hz and 2.66GHz with a 10-bits dutycycle.
+It also contains some helper functions setServoAngleDegrees() and setServoMicroseconds(), which just like analogWritePin() use the low level function setPWM()
+You can use al those functions from you Arduino program.
+You can use the standard Arduino library names Tone and Servo. Just add an #include "Tone.h" or #include "Servo.h" and you can use any Arduino program that uses Tone or Servo.
 
 # NRF52_Radio_library
 
