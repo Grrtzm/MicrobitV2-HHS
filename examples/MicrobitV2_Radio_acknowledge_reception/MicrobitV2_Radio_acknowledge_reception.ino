@@ -1,24 +1,24 @@
 /* 
-   Dit voorbeeld laat zien hoe je data kunt verzenden en ontvangen met de Microbit met ontvangstbevestiging.
-   Upload de code naar de microbits van alle leden van je team. Druk op de knopjes en kijk wat er gebeurt!
+  This example shows how you can send and receive data with the Microbit with acknowledgment of receipt.
+  Upload the code to the microbits of all members of your team. Press the buttons and see what happens!
+  
+  This version: Gert den Neijsel, Haagse Hogeschool, December 2022
 
-   Deze versie: Gert den Neijsel, Haagse Hogeschool, December 2022
-
-   Originele versie:
-     Name:       PingPong_example.ino
+   Original version:
+    Name:       PingPong_example.ino
     Created:	10/12/2018 08.35.50
     Author:     RAHR\michael
 */
 
-#include "NRF52_Radio_library.h"
 #include <Adafruit_Microbit.h>
+#include "NRF52_Radio_library.h"
 
 Adafruit_Microbit_Matrix matrix;
-NRF52_Radio MicrobitRadio = NRF52_Radio();  //Let's get a new instance of the Radio
+NRF52_Radio MicrobitRadio = NRF52_Radio();  // Replace 52 by 51 everywhere if you use a Microbit V1 (nRF51822) instead of a Microbit V2 (nRF52833)
 
-const int POWER = 7;            // (0..7)   Zendvermogen instellen voor Bluetooth radio (andere instelling lijkt geen verschil te maken).
-const int GROEPCODE = 10;       // (0..255) Groepcode voor Bluetooth radio. Zorg dat alle deelnemende Microbits dezelfde (unieke) code gebruiken!
-const int FREQUENTIEBAND = 50;  // (0..100) Frequentiegroep voor Bluetooth radio. Zorg dat alle deelnemende Microbits dezelfde (unieke) code gebruiken!
+const int POWER = 7;           // (0..7)   Set transmit power for Bluetooth radio (other setting seems to make no difference).
+const int GROUPCODE = 10;      // (0..255) Group code for Bluetooth radio. Make sure all participating Microbits use the same (unique) code!
+const int FREQUENCYBAND = 50;  // (0..100) Frequency group for Bluetooth radio. Make sure all participating Microbits use the same (unique) code!
 
 enum STATENAME {
   START,
@@ -45,20 +45,20 @@ bool got_data = false;
 // The setup() function runs once each time the micro-controller starts
 void setup() {
   Serial.begin(9600);
-  Serial.println("Starting the PingPong example using Group 10, frekvens band 50");
+  Serial.println("Starting the PingPong example using Group 10, frequency band 50");
   matrix.begin();
-  matrix.show(microbit.HEART);
+  matrix.show(matrix.HEART);
   MicrobitRadio.setTransmitPower(POWER);
-  MicrobitRadio.enable();  // Radio aanzetten
-  MicrobitRadio.setGroup(GROEPCODE);
-  MicrobitRadio.setFrequencyBand(FREQUENTIEBAND);
+  MicrobitRadio.enable();  // Turn radio on
+  MicrobitRadio.setGroup(GROUPCODE);
+  MicrobitRadio.setFrequencyBand(FREQUENCYBAND);
   Serial.println("Radio running");
 
   current_state = STATENAME::START;
 
   myDataSendData = new FrameBuffer();
-  currentMillis = millis();  // voor de uitleg hiervan zie Voorbeeld -> 01.Digital -> BlinkWithoutDelay
-  // en http://www.arduino.cc/en/Tutorial/BlinkWithoutDelay
+  currentMillis = millis();  // For explanation, look at Examples -> 01.Digital -> BlinkWithoutDelay
+  // and http://www.arduino.cc/en/Tutorial/BlinkWithoutDelay
 }
 
 // Add the main program code into the continuous loop() function
@@ -76,9 +76,9 @@ void loop() {
           got_data == false;                //reset the data flag;
         }
 
-        if (millis() - currentMillis >= start_time) {  // Dit blok wordt na 10000 mSec uitgevoerd. Voor uitleg zie http://www.arduino.cc/en/Tutorial/BlinkWithoutDelay
-          current_state = STATENAME::SEND;             //We did not find any signal, so now we assume that we are the first one running
-          currentMillis = millis();                    //so we start to send, and then wait for a ack.
+        if (millis() - currentMillis >= start_time) {  // This block is executed after 10000 mSec. For explanation take a look at http://www.arduino.cc/en/Tutorial/BlinkWithoutDelay
+          current_state = STATENAME::SEND;             // We did not find any signal, so now we assume that we are the first one running
+          currentMillis = millis();                    // so we start to send, and then wait for a ack.
           Serial.println("State go to SEND");
         }
       };
@@ -90,13 +90,13 @@ void loop() {
         if (got_data == true) {
           if (myReceivedData->group == 2) {
             Serial.println("Got Data");
-            String ontvangst = "";                                      // lege String aanmaken
-            for (uint8_t i = 0; i < myReceivedData->length - 3; i++) {  // -3 want een lege framebuffer is 3 bytes groot
-              ontvangst = String(ontvangst + (char)myReceivedData->payload[i]);
+            String received = "";                                       // Create empty String
+            for (uint8_t i = 0; i < myReceivedData->length - 3; i++) {  // -3 because an empty framebuffer is 3 bytes in size
+              received = String(received + (char)myReceivedData->payload[i]);
             }
-            Serial.print("Ontvangen data : ");
-            Serial.println(ontvangst);
-            current_state = STATENAME::SENDACK;  //If we got data then we are not the first one, we change state to recv.
+            Serial.print("Received data : ");
+            Serial.println(received);
+            current_state = STATENAME::SENDACK;  // If we got data then we are not the first one, we change state to recv.
           }
 
           delete myReceivedData;
@@ -152,7 +152,7 @@ void loop() {
           currentMillis = millis();         //so we start to send, and then wait for a ack.
           matrix.print("S");
 
-          String bericht = "Radio 01 meldt zich!";
+          String bericht = "Radio 01 reporting for duty!";
           myDataSendData->length = 3 + bericht.length();
           myDataSendData->group = 2;  //(1=ACK 2=SEND)
           myDataSendData->version = 10;

@@ -1,4 +1,14 @@
-// Let op: Installeer de volgende library: 	STM32duino LSM303AGR door AST
+/*
+  MicrobitV2_Temperature_sensor
+
+  The temperature is displayed on the matrix display of the Microbit (v1 or v2).
+  It is not accurate. The temperature sensor in the accelerometer which will heat up after a while.
+  The temperature reading is probably 2 to 3 degrees higher than the actual room temperature.
+
+  Please note: Make sure the "STM32duino LSM303AGR by AST" library is installed.
+  This version: Gert den Neijsel, Haagse Hogeschool, December 2022
+*/
+
 #include <LSM303AGR_ACC_Sensor.h>
 #include <Adafruit_Microbit.h>
 

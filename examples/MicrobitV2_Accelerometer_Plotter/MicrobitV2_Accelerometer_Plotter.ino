@@ -1,4 +1,4 @@
-// Let op: Installeer de volgende library: 	STM32duino LSM303AGR door AST
+// Please note:  The "STM32duino LSM303AGR by AST" needs to be installed for this to work.
 
 /**
  ******************************************************************************
@@ -45,7 +45,7 @@
 #include <LSM303AGR_ACC_Sensor.h>
 #include <LSM303AGR_MAG_Sensor.h>
 
-#define DEV_I2C Wire1  //Define which I2C bus is used. Wire1 for the Arduino Due
+#define DEV_I2C Wire1  //Define which I2C bus is used. Wire1 for the Microbit V2. Wire is used for the Microbit V1
 
 // Components.
 LSM303AGR_ACC_Sensor Acc(&DEV_I2C);
@@ -80,7 +80,7 @@ void loop() {
   Mag.GetAxes(magnetometer);
 
   // Output data.
-  // Voor meer info over het weergeven van data zie https://dreamonward.com/2020/07/25/arduino-serial-plotter-labels/
+  // If you need more information about how to display data, go to https://dreamonward.com/2020/07/25/arduino-serial-plotter-labels/
   Serial.print("A0:");
   Serial.print(accelerometer[0]);
   Serial.print(", A1:");
