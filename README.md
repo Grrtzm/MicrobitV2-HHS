@@ -23,9 +23,9 @@ Have fun! Gert.
 
 # PWM library
 The pwm library is written around the function ```analogWritePin()``` which should be functional equivalent to the MakeCode version, except that this one can generate frequencies between 2Hz and 2.66GHz with a 10-bits [0..1023] dutycycle.
-It also contains some helper functions ```setServoAngleDegrees()``` and ```setServoMicroseconds()```, which just like analogWritePin() use the low level function ```setPWM()```.
+It also contains some helper functions ```setServoAngleDegrees()``` and ```setServoMicroseconds()```, which just like ```analogWritePin()``` use the low level function ```setPWM()```.
 You can use all those functions from your Arduino program.
-You can use the standard Arduino library names Tone and Servo. Just add an #include "Tone.h" or #include "Servo.h" and you can use any Arduino program that uses Tone or Servo.
+You can use the standard Arduino library names Tone and Servo. Just add an ```#include "Tone.h"``` or ```#include "Servo.h"``` and you can use any Arduino program that uses Tone or Servo.
 
 # NRF52_Radio_library
 
