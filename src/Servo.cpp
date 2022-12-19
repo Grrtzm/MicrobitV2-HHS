@@ -20,7 +20,7 @@
 
 #include <Arduino.h>
 #include <Servo.h>
-#include <MicrobitV2-HHS.h>
+#include "MicrobitV2-HHS.h"
 
 static servo_t servos[MAX_SERVOS];  // static array of servo structures
 
