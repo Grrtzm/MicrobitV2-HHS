@@ -1,10 +1,10 @@
 # MicrobitV2-HHS Arduino Library
-Microbit Version 2 library for first year 'Haagse Hogeschool' (HHS) HBO-ICT aka 'The Hague University of Applied Sciences' (THUAS) and for everyone else who can use it.
+Microbit Version 2 library for everyone who can use it adding Radio and pwm support (Tone and Servo).
 
 It was built around the [NRF52_Radio_library by aiunderstand](https://github.com/aiunderstand/NRF52_Radio_library).
 Later on, 'Pulse Width Modulation' (pwm) support was added. This is based on "wiring_analog_nRF52.c" [from Sandeep Mistry's repository](https://github.com/sandeepmistry/arduino-nRF5). His library has a fixed pwm frequency. This library can generate every pwm pulse width and frequency you might need. it also contains wrappers for Tone and Servo libraries which both use pwm. 
 
-It was tested on Microbits V2.00 containing nRF52833; the aiunderstand NRF52 library didn't work. I hardcoded the 52833 includes in the files for it to compile.
+It was tested on Microbits V2.00 containing nRF52833; the aiunderstand NRF52 Radio library didn't work. I hardcoded the 52833 includes in the files for it to compile.
 
 I included some fun examples:
 - Motion sensor plotter demo.
@@ -22,8 +22,8 @@ I included some fun examples:
 Have fun! Gert.
 
 # PWM library
-The pwm library is written around the function ```analogWritePin()``` which should be functional equivalent to the MakeCode version, except that this one can generate frequencies between 2Hz and 2.66GHz with a 10-bits [0..1023] dutycycle.
-It also contains some helper functions ```setServoAngleDegrees()``` and ```setServoMicroseconds()```, which just like ```analogWritePin()``` use the low level function ```setPWM()```.
+The pwm library is written around the function ```analogWritePin()``` which should be functional equivalent to the MakeCode version. It can generate frequencies between 2Hz and 2.66GHz with a 10-bits [0..1023] dutycycle. 
+It also contains some helper functions ```setServoAngleDegrees()``` and ```setServoMicroseconds()```, which just like ```analogWritePin()``` use the low level function ```setPWM()```. If you want to use any of these functions, you need to add this include to your sketch: ```#include "MicrobitV2.h"```
 You can use all those functions from your Arduino program.
 You can use the standard Arduino library names Tone and Servo. Just add an ```#include "Tone.h"``` or ```#include "Servo.h"``` and you can use any Arduino program that uses Tone or Servo.
 
