@@ -1,5 +1,5 @@
 /* 
- *  Demo for 4 servo's on a Microbit Version 2
+ *  Demo for 4 servos on a Microbit Version 2
  *  using the MicrobitV2-HHS library
  *  Gert den Neijsel, Haagse Hogeschool, dec-2022
  *  This example code is in the public domain.
