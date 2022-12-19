@@ -3,7 +3,7 @@
  *  This program measures light intensity using the middle led.
  *  
  *  Use the Serial Plotter to display readings.
- *  Try it with and without averaging (remove comments from 3rd last line).
+ *  Try it with and without averaging (remove comments from 3rd last line; Serial.println(average);).
  *  
  *  Gert den Neijsel, Haagse Hogeschool, oct-2019
  *  Based on Arduino AnalogReadSerial example code.

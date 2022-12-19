@@ -38,7 +38,7 @@ Version Modified By Date     Comments
 
 #include "Tone.h"
 #include "Arduino.h"
-#include "MicrobitV2.h"
+#include "MicrobitV2-HHS.h"
 
 void tone(uint8_t pin, unsigned int frequency, unsigned long duration) {
 Serial.begin(9600);

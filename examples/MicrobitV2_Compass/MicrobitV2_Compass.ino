@@ -3,8 +3,6 @@
  *  The heading (0-360 degrees) is displayed in the serial monitor.
  *  The middle LED is lit when the Microbit is level; it indicates an accurate reading.
  *  
- * Please note: Make sure this library is installed: 	"STM32duino LSM303AGR by AST"
- * 
  *  For more information have a look at:
  *  https://learn.adafruit.com/lsm303-accelerometer-slash-compass-breakout/calibration
  *  and https://learn.adafruit.com/calibrating-sensors/two-point-calibration

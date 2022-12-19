@@ -21,11 +21,7 @@
 #define _WIRING_TONE_
 
 #include <stdint.h>
-#include "MicrobitV2.h"
-// #include <stdlib.h>
-// #include <math.h>
-// #include "wiring_digital.h"
-// #include "nrf_pwm.h"
+#include "MicrobitV2-HHS.h"
 
 /**
  * \brief Generate a tone (PWM) output on the specified pin.

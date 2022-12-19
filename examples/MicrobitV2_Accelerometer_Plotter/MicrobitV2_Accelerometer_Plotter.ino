@@ -1,5 +1,3 @@
-// Please note:  The "STM32duino LSM303AGR by AST" needs to be installed for this to work.
-
 /**
  ******************************************************************************
  * @file    X_NUCLEO_IKS01A2_LSM303AGR_DataLog_Terminal.ino

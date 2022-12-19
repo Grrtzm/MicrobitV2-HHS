@@ -19,7 +19,7 @@
 */
 
 #include <Arduino.h>
-#include "MicrobitV2.h"
+#include "MicrobitV2-HHS.h"
 
 #if defined(NRF52_SERIES)
 
