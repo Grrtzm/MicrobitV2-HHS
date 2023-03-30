@@ -41,13 +41,6 @@ Version Modified By Date     Comments
 #include "MicrobitV2-HHS.h"
 
 void tone(uint8_t pin, unsigned int frequency, unsigned long duration) {
-Serial.begin(9600);
-  Serial.print(pin);
-  Serial.print("\t");
-  Serial.print(frequency);
-  Serial.print("\t");
-  Serial.println(duration);
-  
   analogWritePin(pin, 512, frequency);  // function from "MicrobitV2.c", 512 is 50% dutycycle
   delay(duration);
 }

@@ -35,7 +35,6 @@ Servo::Servo() {
 }
 
 uint8_t Servo::attach(int pin) {
-  Serial.begin(9600);
   return this->attach(pin, 0, 2500);
 }
 
